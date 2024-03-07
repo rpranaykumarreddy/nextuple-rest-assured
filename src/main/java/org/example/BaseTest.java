@@ -19,9 +19,11 @@ import java.util.List;
 import static io.restassured.RestAssured.given;
 
 public class BaseTest {
-    protected RequestSpecification spec;
-    protected LocalDate todaysDate = LocalDate.now();
-    protected DateTimeFormatter formatter= DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    protected static RequestSpecification spec = new RequestSpecBuilder().
+            setBaseUri("https://restful-booker.herokuapp.com").
+            build();;
+    protected static LocalDate todaysDate = LocalDate.now();
+    protected static DateTimeFormatter formatter= DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
     @BeforeMethod
     public void setUp() {
